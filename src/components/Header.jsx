@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { v4 } from 'uuid'
 
 
 const Header = () => {
@@ -12,6 +13,7 @@ const Header = () => {
         event.preventDefault();
 
         const newTodo= {
+            id: v4(),
             text:event.target[0].value,
             isDone:false
         }

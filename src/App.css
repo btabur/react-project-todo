@@ -421,3 +421,7 @@ meta,
 [property="todo"] .view:focus-within button {
 	display: none !important;
 }
+
+.isMaked {
+	text-decoration: line-through;
+}

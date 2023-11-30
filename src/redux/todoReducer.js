@@ -1,9 +1,6 @@
 
 const initialState = {
-    todos : [{
-        text:'',
-        isDone:false,
-    }],
+    todos : []
 }
 
 const todoReducer = (state=initialState,action) => {
@@ -12,9 +9,15 @@ const todoReducer = (state=initialState,action) => {
             console.log('eklendi')
             const newTodos = state.todos.concat(action.payload)
             return {...state,todos:newTodos};
-        case "DELETE_TODO": 
+        case "UPDATE_TODO": 
+       
+        const uptadedList = state.todos.map((todo)=> todo.id === action.payload.id ? action.payload : todo )
             //kodlar
-            return '';
+            return {...state,todos:uptadedList};
+        case "DELETE_TODO":
+        const filtered = state.todos.filter((todo)=> todo.id !==action.payload)
+
+        return {...state,todos:filtered}
         default :
             //kodlar
             return state;
